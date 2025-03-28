@@ -1,4 +1,4 @@
-import {  useCallback, useState } from "react";
+import { useCallback, useState } from "react";
 import { AppProvider, Button, Card, DatePicker, FormLayout, Text, TextField } from "@shopify/polaris";
 import "@shopify/polaris/build/esm/styles.css";
 import TaskLists from "./Component/TaskLists";
@@ -10,33 +10,39 @@ function App() {
     { id: 2, text: "Update inventory counts", completed: false, dueDate: new Date() }
   ];
 
+  const monthNames = [
+    "January", "February", "March", "April", "May", "June",
+    "July", "August", "September", "October", "November", "December"
+  ];
+
+
   const [todos, setTodos] = useState(todoList);
   const [newTodo, setNewTodo] = useState('');
   const [selectedDates, setSelectedDates] = useState(new Date());
-  const [{month, year}, setDate] = useState({month: 1, year: 2018});
+  const [{ month, year }, setDate] = useState({ month: 1, year: 2018 });
 
   const handleMonthChange = useCallback(
-    (month, year) => setDate({month, year}),
+    (month, year) => setDate({ month, year }),
     [],
   );
 
-const addTask = (e) => {
+  const addTask = (e) => {
     e.preventDefault();
     // const date = e.target.dueDate.value; 
 
-    if (!newTodo || !selectedDates) return; 
+    if (!newTodo || !selectedDates) return;
 
     const newTask = {
-      id: todos.length + 1, 
+      id: todos.length + 1,
       text: newTodo,
       completed: false,
       dueDate: selectedDates.start,
     };
 
-    console.log("New Task: ", newTask); 
+    console.log("New Task: ", newTask);
 
-    setTodos([...todos, newTask]); 
-    setNewTodo(''); 
+    setTodos([...todos, newTask]);
+    setNewTodo('');
     // e.target.dueDate.value = '';
   };
 
@@ -57,14 +63,15 @@ const addTask = (e) => {
                 </div>
                 <form onSubmit={addTask} className="p-5">
                   <FormLayout>
-                    <TextField label="Task description" value={newTodo} onChange={setNewTodo} autoComplete="off"/>
+                    <TextField label="Task description" value={newTodo} onChange={setNewTodo} autoComplete="off" />
                     <DatePicker
-              month={month}
-              year={year}
-              onChange={setSelectedDates}
-              onMonthChange={handleMonthChange}
-              selected={selectedDates}
-            />
+                      month={month}
+                      year={year}
+                      onChange={setSelectedDates}
+                      onMonthChange={handleMonthChange}
+                      selected={selectedDates}
+                    />
+                    <Text variant="headingMd" as="h2">Selected Month: {monthNames[month]} {year}</Text>
 
                     <Button submit primary>Add Task</Button>
                   </FormLayout>
