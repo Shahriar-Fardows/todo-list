@@ -24,9 +24,9 @@ const TaskLists = ({ todos, setTodos }) => {
                     {todos.map((task) => (
                         <List.Item key={task.id} className="flex justify-between items-center mb-4">
                             <div className="flex items-center justify-between">
-                                <div className="flex items-center gap-5">
+                                <div className={task.completed ? "line-through text-gray-500 flex items-center gap-5" : "flex items-center gap-5"}>
                                 <Checkbox checked={task.completed} onChange={() => handleTaskCompletion(task.id)} label={task.text}/>
-                                <Text variant="bodySm" color={task.completed ? 'subdued' : 'default'}>
+                                <Text variant="bodySm" as="span" >
                                     {task.dueDate.toLocaleDateString()}
                                 </Text>
                                 </div>

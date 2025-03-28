@@ -39,7 +39,7 @@ const addTask = (e) => {
       <AppProvider>
         <div className="container mx-auto">
           <div className="my-6">
-            <Text variant="heading3xl" as="h1">
+            <Text variant="heading2xl" as="h1">
               Task Manager
             </Text>
           </div>
@@ -80,6 +80,7 @@ const addTask = (e) => {
           </div>
         </div>
       </AppProvider>
+
     </div>
   );
 }
