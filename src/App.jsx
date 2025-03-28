@@ -63,6 +63,7 @@ function App() {
                 <form onSubmit={addTask} className="p-5">
                   <FormLayout>
                     <TextField label="Task description" multiline={4} value={newTodo} onChange={setNewTodo} autoComplete="off" />
+                    <Text variant="headingXs" as="h6">Select Due Date  </Text>
                     <DatePicker
                       month={month}
                       year={year}
