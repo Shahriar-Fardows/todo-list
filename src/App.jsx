@@ -28,7 +28,6 @@ function App() {
 
   const addTask = (e) => {
     e.preventDefault();
-    // const date = e.target.dueDate.value; 
 
     if (!newTodo || !selectedDates) return;
 
@@ -43,7 +42,7 @@ function App() {
 
     setTodos([...todos, newTask]);
     setNewTodo('');
-    // e.target.dueDate.value = '';
+    setSelectedDates(new Date());
   };
 
   return (
