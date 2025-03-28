@@ -37,13 +37,13 @@ const addTask = (e) => {
   return (
     <div className="min-h-screen bg-gray-100 p-4">
       <AppProvider>
-        <div className="max-w-4xl mx-auto">
+        <div className="container mx-auto">
           <div className="my-6">
             <Text variant="heading3xl" as="h1">
               Task Manager
             </Text>
           </div>
-          <div className="grid gap-6 grid-cols-3">
+          <div className="grid gap-6 grid-cols-1 md:grid-cols-3">
             <div className="col-span-1">
               <Card>
                 <div className="p-5 border-b border-gray-200">
